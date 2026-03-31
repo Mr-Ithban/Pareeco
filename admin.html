@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAREECO | Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay active">
+    <div class="spinner"></div>
+    <p>Loading Dashboard...</p>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="login-screen hidden">
+    <div class="login-box">
+      <div class="login-header">
+        <div class="logo-icon" style="margin-bottom:12px;"><img src="logo-removebg-preview.png" alt="" style="height:48px;width:auto;" /></div>
+        <h2>PAREECO Admin</h2>
+        <p>Sign in to manage clients.</p>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="adminEmail">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="adminEmail" required placeholder="admin@pareeco.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="adminPassword">Password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="adminPassword" required placeholder="••••••••" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="dashboard hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <img src="logo-removebg-preview.png" alt="" style="height:28px;width:auto;margin-right:8px;vertical-align:middle;" /> PAREECO<span>Admin</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-target="clientsView">
+          <i class="fas fa-users"></i> Manage Clients
+        </button>
+        <button class="nav-btn" data-target="statsView">
+          <i class="fas fa-chart-bar"></i> Stats Settings
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn btn-outline btn-block">
+          <i class="fas fa-sign-out-alt"></i> Log Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Clients View -->
+      <div id="clientsView" class="view-section active">
+        <div class="view-header">
+          <div>
+            <h1>Clients</h1>
+            <p>Manage your client logos and names.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openModal('client')">
+            <i class="fas fa-plus"></i> Add Client
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th width="80">Logo</th>
+                <th>Company Name</th>
+                <th width="100">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="clientsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Stats View -->
+      <div id="statsView" class="view-section hidden">
+        <div class="view-header">
+          <div>
+            <h1>Company Stats</h1>
+            <p>Update the numbers shown on the website's statistic counters.</p>
+          </div>
+        </div>
+
+        <div class="table-container" style="padding: 24px;">
+          <form id="statsForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Projects Completed</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-trophy"></i>
+                  <input type="number" id="statProjects" value="" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Happy Clients</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-smile"></i>
+                  <input type="number" id="statClients" value="" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Skilled Workforce</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-users"></i>
+                  <input type="number" id="statWorkforce" value="" required>
+                </div>
+              </div>
+              <div class="form-group" style="display:flex;align-items:flex-end;">
+                <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">
+                  <em>Note: Years of Experience is auto-calculated based on the founding year (2006).</em>
+                </p>
+              </div>
+            </div>
+            
+            <div class="modal-actions" style="margin-top:16px;">
+              <button type="submit" class="btn btn-primary" id="saveStatsBtn">
+                <i class="fas fa-save"></i> Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: ADD/EDIT CLIENT -->
+  <div class="modal" id="clientModal">
+    <div class="modal-content" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 id="clientModalTitle">Add Client</h3>
+        <button class="close-modal" aria-label="Close" onclick="closeModal('client')"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="clientForm">
+        <input type="hidden" id="clientId" />
+        
+        <div class="form-group">
+          <label for="clientName">Client Name *</label>
+          <input type="text" id="clientName" required />
+        </div>
+
+        <!-- Image Upload Section -->
+        <div class="form-group">
+          <label>Client Logo</label>
+          <div class="input-wrapper mt-sm">
+            <input type="file" id="clientImageFile" accept="image/png, image/jpeg, image/webp, image/svg+xml" />
+          </div>
+
+          <!-- Image preview -->
+          <div class="preview-container hidden" id="clientImagePreviewContainer">
+            <img id="clientImagePreview" src="" alt="Preview" style="object-fit: contain; background: #fff;" />
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('client')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveClientBtn"><i class="fas fa-save"></i> Save Client</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
