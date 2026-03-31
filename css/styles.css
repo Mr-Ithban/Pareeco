@@ -267,8 +267,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .logo {
