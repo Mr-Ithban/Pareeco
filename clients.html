@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Clients | PAREECO Trading &amp; Contracting L.L.M</title>
-  <meta name="description" content="PAREECO is proud to serve a diverse portfolio of clients across Qatar — from government bodies and large corporations to hospitality groups, hospitals, and residential developers." />
+  <meta name="description"
+    content="PAREECO is proud to serve a diverse portfolio of clients across Qatar — from government bodies and large corporations to hospitality groups, hospitals, and residential developers." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -16,60 +18,102 @@
       position: relative;
       overflow: hidden;
     }
+
     .clients-page-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(244,124,32,0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(244, 124, 32, 0.12) 0%, transparent 70%);
     }
-    .clients-page-hero .section-tag { justify-content: center; color: var(--accent); }
-    .clients-page-hero h1 { font-size: clamp(2rem,5vw,3.2rem); color: #fff; margin: 12px 0; }
-    .clients-page-hero h1 span { color: var(--accent); }
+
+    .clients-page-hero .section-tag {
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .clients-page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff;
+      margin: 12px 0;
+    }
+
+    .clients-page-hero h1 span {
+      color: var(--accent);
+    }
+
     .clients-page-hero p {
-      color: rgba(255,255,255,0.72);
+      color: rgba(255, 255, 255, 0.72);
       font-size: 1.08rem;
       max-width: 680px;
       margin: 0 auto 24px;
       line-height: 1.8;
     }
+
     .clients-page-hero nav.breadcrumb {
       display: flex;
       justify-content: center;
       gap: 8px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       font-size: 0.85rem;
     }
-    .clients-page-hero nav.breadcrumb a { color: var(--accent); text-decoration: none; }
-    .clients-page-hero nav.breadcrumb a:hover { text-decoration: underline; }
+
+    .clients-page-hero nav.breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .clients-page-hero nav.breadcrumb a:hover {
+      text-decoration: underline;
+    }
 
     /* ── Trust Stats Strip ──────────────────────────────────── */
     .clients-trust-strip {
       background: var(--accent);
       padding: 36px 0;
     }
+
     .clients-trust-strip .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0;
     }
+
     .trust-stat {
       flex: 1 1 180px;
       text-align: center;
       color: #fff;
       padding: 12px 24px;
-      border-right: 1px solid rgba(255,255,255,0.25);
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
     }
-    .trust-stat:last-child { border-right: none; }
-    .trust-stat .num { font-size: 2rem; font-weight: 800; display: block; }
-    .trust-stat .lbl { font-size: 0.85rem; opacity: 0.88; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .trust-stat:last-child {
+      border-right: none;
+    }
+
+    .trust-stat .num {
+      font-size: 2rem;
+      font-weight: 800;
+      display: block;
+    }
+
+    .trust-stat .lbl {
+      font-size: 0.85rem;
+      opacity: 0.88;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
     /* ── Industries We Serve ────────────────────────────────── */
     .clients-industries {
       background: #f8f9fb;
       padding: 64px 0;
     }
-    .clients-industries .section-title { margin-bottom: 32px; }
+
+    .clients-industries .section-title {
+      margin-bottom: 32px;
+    }
+
     .industries-grid {
       display: flex;
       flex-wrap: wrap;
@@ -77,6 +121,7 @@
       gap: 14px;
       margin-top: 28px;
     }
+
     .industry-chip {
       display: flex;
       align-items: center;
@@ -88,36 +133,47 @@
       font-size: 0.88rem;
       font-weight: 600;
       color: var(--primary);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       transition: all 0.25s;
     }
-    .industry-chip i { color: var(--accent); }
+
+    .industry-chip i {
+      color: var(--accent);
+    }
+
     .industry-chip:hover {
       background: var(--primary);
       color: #fff;
       border-color: var(--primary);
       transform: translateY(-2px);
     }
-    .industry-chip:hover i { color: var(--accent); }
+
+    .industry-chip:hover i {
+      color: var(--accent);
+    }
 
     /* ── All Clients Grid Section ───────────────────────────── */
     .all-clients-section {
       padding: 80px 0;
       background: #fff;
     }
+
     .all-clients-section .section-header {
       text-align: center;
       margin-bottom: 56px;
     }
+
     .all-clients-section .section-subtitle {
       max-width: 600px;
       margin: 0 auto;
     }
+
     #allClientsGrid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 28px;
     }
+
     #allClientsGrid .client-card {
       background: #fff;
       border: 1px solid #e8eaf0;
@@ -130,14 +186,16 @@
       padding: 32px 20px;
       min-height: 160px;
       text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
+
     #allClientsGrid .client-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
       border-color: var(--accent);
     }
+
     #allClientsGrid .client-card img {
       max-width: 110px;
       max-height: 70px;
@@ -145,7 +203,11 @@
       filter: grayscale(30%);
       transition: filter 0.3s;
     }
-    #allClientsGrid .client-card:hover img { filter: grayscale(0%); }
+
+    #allClientsGrid .client-card:hover img {
+      filter: grayscale(0%);
+    }
+
     #allClientsGrid .client-name {
       font-weight: 700;
       color: var(--primary);
@@ -157,266 +219,324 @@
       background: var(--primary);
       padding: 80px 0;
     }
-    .clients-why-section .section-tag { justify-content: center; color: var(--accent); }
-    .clients-why-section .section-title { text-align: center; color: #fff; }
-    .clients-why-section .section-title span { color: var(--accent); }
+
+    .clients-why-section .section-tag {
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .clients-why-section .section-title {
+      text-align: center;
+      color: #fff;
+    }
+
+    .clients-why-section .section-title span {
+      color: var(--accent);
+    }
+
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 28px;
       margin-top: 48px;
     }
+
     .why-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 32px 26px;
       transition: all 0.3s;
     }
+
     .why-card:hover {
-      background: rgba(244,124,32,0.12);
-      border-color: rgba(244,124,32,0.4);
+      background: rgba(244, 124, 32, 0.12);
+      border-color: rgba(244, 124, 32, 0.4);
       transform: translateY(-4px);
     }
+
     .why-card .icon {
-      width: 52px; height: 52px;
-      background: rgba(244,124,32,0.15);
+      width: 52px;
+      height: 52px;
+      background: rgba(244, 124, 32, 0.15);
       border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 18px;
     }
-    .why-card .icon i { font-size: 1.4rem; color: var(--accent); }
-    .why-card h4 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
-    .why-card p { color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.7; margin: 0; }
+
+    .why-card .icon i {
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .why-card h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin: 0;
+    }
 
     /* ── Firestore States ───────────────────────────────────── */
-    .firestore-loading, .firestore-empty {
+    .firestore-loading,
+    .firestore-empty {
       grid-column: 1 / -1;
       text-align: center;
       padding: 60px 20px;
       color: #9ca3af;
     }
-    .firestore-loading i, .firestore-empty i { font-size: 2rem; margin-bottom: 14px; display: block; }
+
+    .firestore-loading i,
+    .firestore-empty i {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- Topbar -->
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-left">
-      <a href="tel:+97430573602" class="topbar-item"><i class="fas fa-phone"></i> +974 3057 3602</a>
-      <a href="mailto:pareecotradingandcontracting@gmail.com" class="topbar-item"><i class="fas fa-envelope"></i> pareecotradingandcontracting@gmail.com</a>
-      <span class="topbar-item"><i class="fas fa-clock"></i> Sat–Thu: 07:00 – 18:00</span>
-    </div>
-    <div class="topbar-social">
-      <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <div class="logo-icon"><img src="logo and name.png" alt="PAREECO Trading and Contracting" style="height:80px;width:auto;" /></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="clients.html" class="active">Our Clients</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="clients.html">Our Clients</a>
-</div>
-
-<!-- Hero -->
-<section class="clients-page-hero">
-  <div class="container">
-    <div class="section-tag">Our Trusted Partners</div>
-    <h1>The Brands That <span>Trust PAREECO</span></h1>
-    <p>For <span class="dynamic-yoe">18+</span> years, PAREECO has built lasting partnerships with some of Qatar's most respected organisations — from government entities and large corporations to hospitality groups, hospitals, and private residential developers. Our client relationships are built on trust, transparency, and a relentless drive to deliver excellence.</p>
-    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Our Clients</span></nav>
-  </div>
-</section>
-
-<!-- Trust Stats Strip -->
-<section class="clients-trust-strip">
-  <div class="container">
-    <div class="trust-stat reveal">
-      <span class="num">350+</span>
-      <span class="lbl">Satisfied Clients</span>
-    </div>
-    <div class="trust-stat reveal">
-      <span class="num dynamic-yoe">18+</span>
-      <span class="lbl">Years of Partnership</span>
-    </div>
-    <div class="trust-stat reveal">
-      <span class="num">500+</span>
-      <span class="lbl">Projects Delivered</span>
-    </div>
-    <div class="trust-stat reveal">
-      <span class="num">100%</span>
-      <span class="lbl">Client Retention</span>
-    </div>
-  </div>
-</section>
-
-<!-- Industries We Serve -->
-<section class="clients-industries">
-  <div class="container">
-    <div style="text-align:center;">
-      <div class="section-tag" style="justify-content:center;">Who We Work With</div>
-      <h2 class="section-title">Industries <span>We Serve</span></h2>
-      <p class="section-subtitle" style="text-align:center;margin:0 auto;">Our expertise spans all major sectors across Qatar, making PAREECO the go-to partner for projects of any scale and complexity.</p>
-    </div>
-    <div class="industries-grid reveal">
-      <div class="industry-chip"><i class="fas fa-home"></i> Residential</div>
-      <div class="industry-chip"><i class="fas fa-building"></i> Corporate</div>
-      <div class="industry-chip"><i class="fas fa-store"></i> Retail</div>
-      <div class="industry-chip"><i class="fas fa-school"></i> School</div>
-      <div class="industry-chip"><i class="fas fa-hospital"></i> Hospitals</div>
-      <div class="industry-chip"><i class="fas fa-utensils"></i> Food Prepare Area</div>
-      <div class="industry-chip"><i class="fas fa-industry"></i> Industrial Area</div>
-      <div class="industry-chip"><i class="fas fa-warehouse"></i> Warehouses</div>
-      <div class="industry-chip"><i class="fas fa-pizza-slice"></i> Restaurants</div>
-      <div class="industry-chip"><i class="fas fa-blender"></i> Kitchens</div>
-      <div class="industry-chip"><i class="fas fa-hotel"></i> Hotels</div>
-    </div>
-  </div>
-</section>
-
-<!-- All Clients Grid -->
-<section class="all-clients-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag" style="justify-content:center;">Our Portfolio</div>
-      <h2 class="section-title" style="text-align:center;">Meet Our <span>Valued Clients</span></h2>
-      <p class="section-subtitle" style="text-align:center;">A growing family of organisations that rely on PAREECO to keep their spaces running at their best.</p>
-    </div>
-    <div id="allClientsGrid">
-      <!-- Populated dynamically by firebase-app.js -->
-    </div>
-  </div>
-</section>
-
-<!-- Why Clients Trust Us -->
-<section class="clients-why-section">
-  <div class="container">
-    <div class="section-tag">Why Choose PAREECO</div>
-    <h2 class="section-title">What Makes Clients <span>Stay With Us</span></h2>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="icon"><i class="fas fa-handshake"></i></div>
-        <h4>Dedicated Relationships</h4>
-        <p>We treat every client as a long-term partner, not a one-time transaction. Our team stays invested from day one to project handover and beyond.</p>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <a href="tel:+97450058369" class="topbar-item"><i class="fas fa-phone"></i> +974 5005 8369</a>
+        <a href="tel:+97477192691" class="topbar-item"><i class="fas fa-phone"></i> +974 7719 2691</a>
+        <a href="mailto:info@pareeco.com" class="topbar-item"><i class="fas fa-envelope"></i>
+          info@pareeco.com</a>
+        <!--span class="topbar-item"><i class="fas fa-clock"></i> Sat–Thu: 07:00 – 18:00</span>-->
       </div>
-      <div class="why-card reveal">
-        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-        <h4>Proven Reliability</h4>
-        <p><span class="dynamic-yoe">18+</span> years of project delivery without compromise. Our clients return to us because we consistently meet timelines, budgets, and quality standards.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="icon"><i class="fas fa-cogs"></i></div>
-        <h4>End-to-End Expertise</h4>
-        <p>From HVAC design to final finishing, we cover every phase under one roof. Our clients benefit from a single accountable partner for their entire project.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="icon"><i class="fas fa-headset"></i></div>
-        <h4>Responsive Support</h4>
-        <p>After-service support that is fast and professional. Our maintenance teams are always on call, ensuring our clients' operations never face downtime.</p>
+      <div class="topbar-social">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- Footer CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-content reveal-left">
-      <h2>Ready to Join Our Client Family?</h2>
-      <p>Reach out to us directly — our contact details are in the footer below. We'd love to discuss your next project.</p>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><img src="logo and name.png" alt="PAREECO Trading and Contracting"
+            style="height:80px;width:auto;" /></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="clients.html" class="active">Our Clients</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="cta-buttons reveal-right">
-      <a href="services.html" class="btn btn-dark">Our Services <i class="fas fa-arrow-right"></i></a>
-      <a href="tel:+97430573602" class="btn btn-outline"><i class="fas fa-phone"></i> Call Us Now</a>
-    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="clients.html">Our Clients</a>
   </div>
-</section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-about footer-col">
-        <a href="index.html" class="logo" style="margin-bottom:20px;display:inline-flex;">
-          <div class="logo-icon"><img src="logo-f.png" alt="PAREECO Trading and Contracting" style="height:80px;width:auto;" /></div>
-        </a>
-        <p>PAREECO Trading &amp; Contracting L.L.M — Qatar's trusted HVAC, MEP, construction, and engineering company delivering high-quality solutions for <span class="dynamic-yoe">18+</span> years.</p>
-        <div class="footer-social">
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+  <!-- Hero -->
+  <section class="clients-page-hero">
+    <div class="container">
+      <div class="section-tag">Our Trusted Partners</div>
+      <h1>The Brands That <span>Trust PAREECO</span></h1>
+      <p>For <span class="dynamic-yoe">18+</span> years, PAREECO has built lasting partnerships with some of Qatar's
+        most respected organisations — from government entities and large corporations to hospitality groups, hospitals,
+        and private residential developers. Our client relationships are built on trust, transparency, and a relentless
+        drive to deliver excellence.</p>
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Our Clients</span></nav>
+    </div>
+  </section>
+
+  <!-- Trust Stats Strip -->
+  <section class="clients-trust-strip">
+    <div class="container">
+      <div class="trust-stat reveal">
+        <span class="num stat-val-clients"><span class="stat-skeleton"></span></span>
+        <span class="lbl">Satisfied Clients</span>
+      </div>
+      <div class="trust-stat reveal">
+        <span class="num stat-val-years"><span class="stat-skeleton"></span></span>
+        <span class="lbl">Years of Partnership</span>
+      </div>
+      <div class="trust-stat reveal">
+        <span class="num stat-val-projects"><span class="stat-skeleton"></span></span>
+        <span class="lbl">Projects Delivered</span>
+      </div>
+      <div class="trust-stat reveal">
+        <span class="num">100%</span>
+        <span class="lbl">Client Retention</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="clients-industries">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-tag" style="justify-content:center;">Who We Work With</div>
+        <h2 class="section-title">Industries <span>We Serve</span></h2>
+        <p class="section-subtitle" style="text-align:center;margin:0 auto;">Our expertise spans all major sectors
+          across Qatar, making PAREECO the go-to partner for projects of any scale and complexity.</p>
+      </div>
+      <div class="industries-grid reveal">
+        <div class="industry-chip"><i class="fas fa-home"></i> Residential</div>
+        <div class="industry-chip"><i class="fas fa-building"></i> Corporate</div>
+        <div class="industry-chip"><i class="fas fa-store"></i> Retail</div>
+        <div class="industry-chip"><i class="fas fa-school"></i> School</div>
+        <div class="industry-chip"><i class="fas fa-hospital"></i> Hospitals</div>
+        <div class="industry-chip"><i class="fas fa-utensils"></i> Food Prepare Area</div>
+        <div class="industry-chip"><i class="fas fa-industry"></i> Industrial Area</div>
+        <div class="industry-chip"><i class="fas fa-warehouse"></i> Warehouses</div>
+        <div class="industry-chip"><i class="fas fa-pizza-slice"></i> Restaurants</div>
+        <div class="industry-chip"><i class="fas fa-blender"></i> Kitchens</div>
+        <div class="industry-chip"><i class="fas fa-hotel"></i> Hotels</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Clients Grid -->
+  <section class="all-clients-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" style="justify-content:center;">Our Portfolio</div>
+        <h2 class="section-title" style="text-align:center;">Meet Our <span>Valued Clients</span></h2>
+        <p class="section-subtitle" style="text-align:center;">A growing family of organisations that rely on PAREECO to
+          keep their spaces running at their best.</p>
+      </div>
+      <div id="allClientsGrid">
+        <!-- Populated dynamically by firebase-app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Clients Trust Us -->
+  <section class="clients-why-section">
+    <div class="container">
+      <div class="section-tag">Why Choose PAREECO</div>
+      <h2 class="section-title">What Makes Clients <span>Stay With Us</span></h2>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h4>Dedicated Relationships</h4>
+          <p>We treat every client as a long-term partner, not a one-time transaction. Our team stays invested from day
+            one to project handover and beyond.</p>
         </div>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-          <li><a href="clients.html"><i class="fas fa-chevron-right"></i> Our Clients</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Our Services</h4>
-        <ul class="footer-links">
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> HVAC Systems &amp; AC Works</a></li>
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Gypsum, Glass &amp; Painting</a></li>
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> MS Steel Works</a></li>
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Maintenance Services</a></li>
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Cleaning &amp; Pest Control</a></li>
-          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Manpower Supply</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact Info</h4>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="footer-contact-info"><strong>Address</strong>P.O. Box 80284, Doha, Qatar</div>
+        <div class="why-card reveal">
+          <div class="icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Proven Reliability</h4>
+          <p><span class="dynamic-yoe">18+</span> years of project delivery without compromise. Our clients return to us
+            because we consistently meet timelines, budgets, and quality standards.</p>
         </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
-          <div class="footer-contact-info"><strong>Phone</strong>+974 3057 3602 / +974 5005 8369</div>
+        <div class="why-card reveal">
+          <div class="icon"><i class="fas fa-cogs"></i></div>
+          <h4>End-to-End Expertise</h4>
+          <p>From HVAC design to final finishing, we cover every phase under one roof. Our clients benefit from a single
+            accountable partner for their entire project.</p>
         </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
-          <div class="footer-contact-info"><strong>Email</strong>pareecotradingandcontracting@gmail.com</div>
+        <div class="why-card reveal">
+          <div class="icon"><i class="fas fa-headset"></i></div>
+          <h4>Responsive Support</h4>
+          <p>After-service support that is fast and professional. Our maintenance teams are always on call, ensuring our
+            clients' operations never face downtime.</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 <a href="index.html">PAREECO Trading &amp; Contracting L.L.M</a>. All Rights Reserved.</span>
-      <span>Doha, Qatar <i class="fas fa-heart" style="color:var(--accent)"></i></span>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script src="js/main.js"></script>
-<script type="module" src="js/clients-page.js"></script>
+  <!-- Footer CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal-left">
+        <h2>Ready to Join Our Client Family?</h2>
+        <p>Reach out to us directly — our contact details are in the footer below. We'd love to discuss your next
+          project.</p>
+      </div>
+      <div class="cta-buttons reveal-right">
+        <a href="services.html" class="btn btn-dark">Our Services <i class="fas fa-arrow-right"></i></a>
+        <a href="tel:+97450058369" class="btn btn-outline"><i class="fas fa-phone"></i> Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about footer-col">
+          <a href="index.html" class="logo" style="margin-bottom:20px;display:inline-flex;">
+            <div class="logo-icon"><img src="logo-f.png" alt="PAREECO Trading and Contracting"
+                style="height:80px;width:auto;" /></div>
+          </a>
+          <p>PAREECO Trading &amp; Contracting L.L.M — Qatar's trusted HVAC, MEP, construction, and engineering company
+            delivering high-quality solutions for <span class="dynamic-yoe">18+</span> years.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="clients.html"><i class="fas fa-chevron-right"></i> Our Clients</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> HVAC Systems &amp; AC Works</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Gypsum, Glass &amp; Painting</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> MS Steel Works</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Maintenance Services</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Cleaning &amp; Pest Control</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Manpower Supply</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="footer-contact-info"><strong>Address</strong>P.O. Box 80284, Doha, Qatar</div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div class="footer-contact-info"><strong>Phone</strong>+974 5005 8369<br>+974 7719 2691</div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="footer-contact-info"><strong>Email</strong>info@pareeco.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 <a href="index.html">PAREECO Trading &amp; Contracting L.L.M</a>. All Rights Reserved.</span>
+        <span>Doha, Qatar <i class="fas fa-heart" style="color:var(--accent)"></i></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="module" src="js/firebase-app.js"></script>
+  <script type="module" src="js/clients-page.js"></script>
 </body>
+
 </html>

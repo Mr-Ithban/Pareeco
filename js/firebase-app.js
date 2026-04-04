@@ -95,39 +95,73 @@ function reobserveReveal() {
 /* ─────────────────────────────────────────────────────────
    STATS DYNAMIC LOAD & AUTO YOE CALCULATION
 ───────────────────────────────────────────────────────── */
-function updateStatValue(selector, value) {
+function formatStatElement(el, targetStr) {
+  el.setAttribute('data-target', targetStr);
+  el.innerHTML = `0<span>+</span>`; // Remove skeleton, prepare for counter
+}
+
+function updateStatValue(selector, value, doFade = false) {
   const elements = document.querySelectorAll(selector);
   elements.forEach(el => {
-    el.setAttribute('data-target', value);
-    // If the element has already been animated, hard-replace the text node.
-    if (el.childNodes[0] && el.childNodes[0].nodeType === 3) {
-      el.childNodes[0].nodeValue = value;
+    // If already initialized (cache hit earlier), we update target and trigger re-animation
+    if (el.hasAttribute('data-target')) {
+      el.setAttribute('data-target', value);
+      window.dispatchEvent(new CustomEvent('statsUpdate', { detail: el }));
+    } else {
+      // First time setup - removing skeleton
+      formatStatElement(el, value);
     }
   });
 }
 
 async function loadStats() {
-  // 1. Auto calculate Years of experience (founded 2006)
   const currentYear = new Date().getFullYear();
   const yoe = currentYear - 2006;
-  updateStatValue('.stat-val-years', yoe);
-
-  // Update static text elements containing "18+" with dynamic YOE
+  
+  // Static text injection
   document.querySelectorAll('.dynamic-yoe').forEach(el => {
     el.textContent = yoe + '+';
   });
 
-  // 2. Fetch the dynamic customizable stats from Firebase
+  let cachedData = null;
+  try {
+     const saved = localStorage.getItem('pareeco_stats');
+     if (saved) cachedData = JSON.parse(saved);
+  } catch(e){}
+
+  if (cachedData) {
+     updateStatValue('.stat-val-years', yoe);
+     if (cachedData.projects) updateStatValue('.stat-val-projects', cachedData.projects);
+     if (cachedData.clients) updateStatValue('.stat-val-clients', cachedData.clients);
+     if (cachedData.workforce) updateStatValue('.stat-val-workforce', cachedData.workforce);
+     window.dispatchEvent(new Event('statsReady')); 
+  }
+
   try {
     const statDoc = await getDoc(doc(db, 'settings', 'stats'));
     if (statDoc.exists()) {
       const data = statDoc.data();
-      if (data.projects) updateStatValue('.stat-val-projects', data.projects);
-      if (data.clients) updateStatValue('.stat-val-clients', data.clients);
-      if (data.workforce) updateStatValue('.stat-val-workforce', data.workforce);
+      localStorage.setItem('pareeco_stats', JSON.stringify(data));
+      
+      if (!cachedData) {
+         updateStatValue('.stat-val-years', yoe);
+         if (data.projects) updateStatValue('.stat-val-projects', data.projects);
+         if (data.clients) updateStatValue('.stat-val-clients', data.clients);
+         if (data.workforce) updateStatValue('.stat-val-workforce', data.workforce);
+         window.dispatchEvent(new Event('statsReady'));
+      } else {
+         if (data.projects && String(data.projects) !== String(cachedData.projects)) updateStatValue('.stat-val-projects', data.projects, true);
+         if (data.clients && String(data.clients) !== String(cachedData.clients)) updateStatValue('.stat-val-clients', data.clients, true);
+         if (data.workforce && String(data.workforce) !== String(cachedData.workforce)) updateStatValue('.stat-val-workforce', data.workforce, true);
+      }
     }
   } catch (err) {
-    console.warn('Could not load dynamic stats from Firestore, falling back to static HTML values.');
+    console.warn('Could not load dynamic stats from Firestore.', err);
+    if (!cachedData) {
+       document.querySelectorAll('.stat-val-projects, .stat-val-years, .stat-val-clients, .stat-val-workforce').forEach(el => { 
+         if(el.querySelector('.stat-skeleton')) el.innerHTML = '--'; 
+       });
+    }
   }
 }
 

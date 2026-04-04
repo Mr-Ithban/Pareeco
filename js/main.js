@@ -65,11 +65,18 @@
 
   /* ── Animated counters ────────────────────────────────── */
   function animateCounter(el) {
+    if (el.dataset.timer) clearInterval(Number(el.dataset.timer));
+
     const target = parseInt(el.dataset.target || '0', 10);
-    const suffix = el.querySelector('span') ? el.querySelector('span').textContent : '';
     const duration = 1800;
-    const step = Math.ceil(duration / target);
-    let current = 0;
+    const step = Math.ceil(duration / (target || 1));
+    let current = parseInt(el.childNodes[0].textContent || '0', 10) || 0;
+
+    // If already at target, don't run timer
+    if (current >= target) {
+       el.childNodes[0].textContent = target;
+       return;
+    }
 
     const timer = setInterval(() => {
       current += Math.max(1, Math.floor(target / 60));
@@ -79,6 +86,7 @@
       }
       el.childNodes[0].textContent = current;
     }, step);
+    el.dataset.timer = timer;
   }
 
   const counterObserver = new IntersectionObserver(
@@ -93,8 +101,18 @@
     { threshold: 0.5 }
   );
 
-  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-    counterObserver.observe(el);
+  window.addEventListener('statsReady', () => {
+    document.querySelectorAll('.stat-number[data-target], .number[data-target], .num[data-target]').forEach(el => {
+      counterObserver.observe(el);
+    });
+  });
+
+  window.addEventListener('statsUpdate', (e) => {
+    const el = e.detail;
+    // We only re-trigger animation if it was already observed/animating
+    if (el && el.dataset.timer) {
+      animateCounter(el);
+    }
   });
 
   /* ── Portfolio filter ─────────────────────────────────── */
