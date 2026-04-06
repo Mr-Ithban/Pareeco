@@ -34,7 +34,7 @@ async function loadHomeClients() {
   if (!grid) return;
 
   try {
-    const q        = query(collection(db, 'clients'), limit(6));
+    const q = query(collection(db, 'clients'), limit(6));
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
@@ -45,7 +45,7 @@ async function loadHomeClients() {
     grid.innerHTML = '';
 
     snapshot.forEach((docItem) => {
-      const c    = docItem.data();
+      const c = docItem.data();
       const card = document.createElement('div');
       card.className = 'client-card reveal';
 
@@ -116,8 +116,8 @@ function updateStatValue(selector, value, doFade = false) {
 
 async function loadStats() {
   const currentYear = new Date().getFullYear();
-  const yoe = currentYear - 2006;
-  
+  const yoe = currentYear - 2020;
+
   // Static text injection
   document.querySelectorAll('.dynamic-yoe').forEach(el => {
     el.textContent = yoe + '+';
@@ -125,16 +125,16 @@ async function loadStats() {
 
   let cachedData = null;
   try {
-     const saved = localStorage.getItem('pareeco_stats');
-     if (saved) cachedData = JSON.parse(saved);
-  } catch(e){}
+    const saved = localStorage.getItem('pareeco_stats');
+    if (saved) cachedData = JSON.parse(saved);
+  } catch (e) { }
 
   if (cachedData) {
-     updateStatValue('.stat-val-years', yoe);
-     if (cachedData.projects) updateStatValue('.stat-val-projects', cachedData.projects);
-     if (cachedData.clients) updateStatValue('.stat-val-clients', cachedData.clients);
-     if (cachedData.workforce) updateStatValue('.stat-val-workforce', cachedData.workforce);
-     window.dispatchEvent(new Event('statsReady')); 
+    updateStatValue('.stat-val-years', yoe);
+    if (cachedData.projects) updateStatValue('.stat-val-projects', cachedData.projects);
+    if (cachedData.clients) updateStatValue('.stat-val-clients', cachedData.clients);
+    if (cachedData.workforce) updateStatValue('.stat-val-workforce', cachedData.workforce);
+    window.dispatchEvent(new Event('statsReady'));
   }
 
   try {
@@ -142,25 +142,25 @@ async function loadStats() {
     if (statDoc.exists()) {
       const data = statDoc.data();
       localStorage.setItem('pareeco_stats', JSON.stringify(data));
-      
+
       if (!cachedData) {
-         updateStatValue('.stat-val-years', yoe);
-         if (data.projects) updateStatValue('.stat-val-projects', data.projects);
-         if (data.clients) updateStatValue('.stat-val-clients', data.clients);
-         if (data.workforce) updateStatValue('.stat-val-workforce', data.workforce);
-         window.dispatchEvent(new Event('statsReady'));
+        updateStatValue('.stat-val-years', yoe);
+        if (data.projects) updateStatValue('.stat-val-projects', data.projects);
+        if (data.clients) updateStatValue('.stat-val-clients', data.clients);
+        if (data.workforce) updateStatValue('.stat-val-workforce', data.workforce);
+        window.dispatchEvent(new Event('statsReady'));
       } else {
-         if (data.projects && String(data.projects) !== String(cachedData.projects)) updateStatValue('.stat-val-projects', data.projects, true);
-         if (data.clients && String(data.clients) !== String(cachedData.clients)) updateStatValue('.stat-val-clients', data.clients, true);
-         if (data.workforce && String(data.workforce) !== String(cachedData.workforce)) updateStatValue('.stat-val-workforce', data.workforce, true);
+        if (data.projects && String(data.projects) !== String(cachedData.projects)) updateStatValue('.stat-val-projects', data.projects, true);
+        if (data.clients && String(data.clients) !== String(cachedData.clients)) updateStatValue('.stat-val-clients', data.clients, true);
+        if (data.workforce && String(data.workforce) !== String(cachedData.workforce)) updateStatValue('.stat-val-workforce', data.workforce, true);
       }
     }
   } catch (err) {
     console.warn('Could not load dynamic stats from Firestore.', err);
     if (!cachedData) {
-       document.querySelectorAll('.stat-val-projects, .stat-val-years, .stat-val-clients, .stat-val-workforce').forEach(el => { 
-         if(el.querySelector('.stat-skeleton')) el.innerHTML = '--'; 
-       });
+      document.querySelectorAll('.stat-val-projects, .stat-val-years, .stat-val-clients, .stat-val-workforce').forEach(el => {
+        if (el.querySelector('.stat-skeleton')) el.innerHTML = '--';
+      });
     }
   }
 }
