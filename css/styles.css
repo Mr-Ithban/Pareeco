@@ -447,6 +447,7 @@ section {
   z-index: 1;
   padding-top: 40px;
   padding-bottom: 60px;
+  overflow: hidden;
 }
 
 .hero-content {}
@@ -559,18 +560,15 @@ section {
 
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero-stats-card {
     position: absolute;
-    /* keep overlay */
-    right: 10px;
-    /* inside screen */
+    right: 0 !important;
+    /* 🔥 CRITICAL FIX */
     bottom: 10px;
     width: auto;
-    /* ❗ remove full width */
-    max-width: 160px;
-    /* control size */
-    padding: 16px;
+    max-width: 140px;
+    padding: 14px;
   }
 }
 
